@@ -16,4 +16,5 @@ view_wview[0] = obj_appsurf.dis_w;
 view_hview[0] = obj_appsurf.dis_h;
 view_wport[0] = obj_appsurf.dis_w;
 view_hport[0] = obj_appsurf.dis_h;
+surface_resize(application_surface, obj_appsurf.dis_w, obj_appsurf.dis_h);
 
