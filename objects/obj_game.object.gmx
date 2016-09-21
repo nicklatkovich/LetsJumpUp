@@ -4,11 +4,11 @@
   <solid>0</solid>
   <visible>-1</visible>
   <depth>0</depth>
-  <persistent>-1</persistent>
+  <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
-    <event eventtype="0" enumb="0">
+    <event eventtype="8" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -26,18 +26,11 @@
           <argument>
             <kind>1</kind>
             <string>
-if (window_get_fullscreen()) {
-    dis_w = display_get_width();
-    dis_h = display_get_height();
-} else {
-    dis_w = 960;
-    dis_h = 540;
-    window_set_position(
-        (display_get_width() - dis_w) / 2,
-        (display_get_height() - dis_h) / 2);
-    window_set_size(dis_w, dis_h);
-}
-surface_resize(application_surface, dis_w, dis_h);
+var color = make_colour_hsv(current_time / 31 mod 256, 255, 255);
+var xx = current_time / 11 mod obj_appsurf.dis_w;
+var yy = current_time / 17 mod obj_appsurf.dis_h;
+var rot = current_time / 23 mod 360;
+draw_sprite_ext(spr_box, 0, xx, yy, 1, 1, rot, color, 1);
 
 </string>
           </argument>
