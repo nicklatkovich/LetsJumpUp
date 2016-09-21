@@ -26,21 +26,15 @@
           <argument>
             <kind>1</kind>
             <string>
-if (window_get_fullscreen()) {
-    scr_display_resize(display_get_width(), display_get_height());
-} else {
-    scr_display_resize(960, 540);
-}
-surface_resize(application_surface, dis_w, dis_h);
-
-instance_create(0, 0, obj_fps_viewer);
+FPS = "";
+alarm[0] = 30;
 
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="3" enumb="0">
+    <event eventtype="2" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -57,14 +51,36 @@ instance_create(0, 0, obj_fps_viewer);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Check for fullscreen resize
+            <string>
+FPS = string(floor(fps_real));
+alarm[0] = 30;
 
-if (window_get_fullscreen()) {
-    var new_dis_w = display_get_width();
-    var new_dis_h = display_get_height();
-    if (dis_w != new_dis_w || dis_h != new_dis_h) {
-        scr_display_resize(new_dis_w, new_dis_h);
-    }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>
+if (FPS != "") {
+    draw_set_color(c_black);
+    draw_text(0, 0, "FPS = " + FPS);
 }
 
 </string>
