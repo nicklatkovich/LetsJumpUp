@@ -8,6 +8,33 @@
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
+    <event eventtype="0" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>
+var spr_width = sprite_get_width(spr_box);
+var spr_height = sprite_get_height(spr_box);
+box_size = sqrt(power(spr_width, 2) + power(spr_height, 2)) / 2;
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="8" enumb="0">
       <action>
         <libid>1</libid>
@@ -27,8 +54,8 @@
             <kind>1</kind>
             <string>
 var color = make_colour_hsv(current_time / 31 mod 256, 255, 255);
-var xx = current_time / 11 mod obj_appsurf.dis_w;
-var yy = current_time / 17 mod obj_appsurf.dis_h;
+var xx = current_time / 11 mod (obj_appsurf.dis_w + 2 * box_size) - box_size;
+var yy = current_time / 17 mod (obj_appsurf.dis_h + 2 * box_size) - box_size;
 var rot = current_time / 23 mod 360;
 draw_sprite_ext(spr_box, 0, xx, yy, 1, 1, rot, color, 1);
 

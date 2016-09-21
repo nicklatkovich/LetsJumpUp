@@ -11,6 +11,9 @@
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
+  <scripts name="scripts">
+    <script>scripts\scr_display_resize.gml</script>
+  </scripts>
   <objects name="objects">
     <object>objects\obj_appsurf</object>
     <object>objects\obj_game</object>
